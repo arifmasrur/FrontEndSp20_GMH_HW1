@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>FE_SP20_Arif</title>
+</head>
+
+
+
+<script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+
+<body>
+    <h3>Front-end Spring 2020</h3>
+    <h4>HW#1</h4>
+
+    <table border="1" id="myTableId">
+        <thead>
+            <th> Item</th>
+            <th> Quantity</th>
+            <th> Unit Price</th>
+            <th> Cost</th>
+        </thead>
+
+        <tr>
+            <td> Laptop</td>
+            <td><input id="VarA" onchange="compute()" value="0" type="number" /> </td>
+            <td><input id="VarB" onchange="compute()" value="0" type="number" /> </td>
+            <td>
+                <div id="Ab_total">0</div>
+            </td>
+        </tr>
+        <tr>
+            <td> Car</td>
+            <td><input id="VarD" onchange="compute()" value="0" type="number" /> </td>
+            <td><input id="VarE" onchange="compute()" value="0" type="number" /> </td>
+            <td>
+                <div id="DE_total">0</div>
+            </td>
+        </tr>
+        <tr>
+            <td> Camera</td>
+            <td><input id="VarG" onchange="compute()" value="0" type="number" /> </td>
+            <td><input id="VarH" onchange="compute()" value="0" type="number" /> </td>
+            <td>
+                <div id="GH_total">0</div>
+            </td>
+
+        </tr>
+
+        <tr>
+            <td colspan="3"> Total cost</td>
+            <td>
+                <div id="showtotal">0</div>
+            </td>
+        </tr>
+
+
+    </table>
+    <br>
+
+    <input id="resetBtn" type="button" value="Reset" onclick="reset()" />
+
+</body>
+
+<script>
+
+
+    function compute() {
+        var a = document.getElementById('VarA').value;
+        var b = document.getElementById('VarB').value;
+        var c = parseInt(a) * parseInt(b);
+
+        var d = document.getElementById('VarD').value;
+        var e = document.getElementById('VarE').value;
+        var f = parseInt(d) * parseInt(e);
+
+        var g = document.getElementById('VarG').value;
+        var h = document.getElementById('VarH').value;
+        var i = parseInt(g) * parseInt(h);
+
+
+
+        $("#Ab_total").html(c);
+        $("#DE_total").html(f);
+        $("#GH_total").html(i);
+
+
+
+        var result = parseInt(c) + parseInt(f) + parseInt(i);
+
+        $("#showtotal").html(result);
+    }
+
+
+    $(function () {
+        $('#resetBtn').click(function () {
+
+            $('#myTableId').find('input[type=number]').each(function () {
+                var defaultVal = 0;
+                $(this).val(defaultVal);
+
+
+                $('#Ab_total').text("0")
+                $('#DE_total').text("0")
+                $('#GH_total').text("0")
+                $('#showtotal').text("0")
+
+
+
+            });
+        });
+    });
+
+
+</script>
+
+</html>
